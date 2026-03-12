@@ -1,0 +1,125 @@
+/* =========================================
+   ESTILOS GENERALES
+========================================= */
+body {
+    background-color: #f4f6f9; 
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+/* =========================================
+   HEADER / TOPBAR
+========================================= */
+.topbar {
+    background-color: #1a222b; /* Tono oscuro formal */
+    color: #ffffff;
+    padding: 12px 25px;
+}
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+    border-radius: 4px;
+    object-fit: contain;
+    background-color: #ffffff; 
+    padding: 3px;
+}
+
+.tracking-wide {
+    letter-spacing: 1.5px; /* Separa un poco las letras del título para que se vea más pro */
+}
+
+/* Botón del menú de usuario en el header */
+.btn-user {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-user:hover, .btn-user:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* =========================================
+   TARJETAS Y SECCIONES
+========================================= */
+.card-section.formal-style {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.section-title-formal {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #dee2e6; 
+}
+
+/* =========================================
+   FORMULARIO
+========================================= */
+.form-label-formal {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+/* Estilo personalizado para los inputs y selects */
+.custom-select {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-select:focus {
+    background-color: #ffffff;
+    border-color: #0d6efd; /* Azul de Bootstrap al hacer clic */
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    outline: none;
+}
+
+/* =========================================
+   BOTÓN GUARDAR AGENDA
+========================================= */
+.btn-start {
+    background-color: #0d6efd; /* Azul principal */
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    padding: 12px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-start:hover {
+    background-color: #0b5ed7; /* Un azul un poco más oscuro al pasar el mouse */
+    color: #ffffff;
+}
+
+.btn-start:active {
+    transform: scale(0.98); /* Pequeño efecto de hundimiento al hacer clic */
+}
+
+/* =========================================
+   TABLA DE VISITAS
+========================================= */
+.table th {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05); /* Un resaltado azul muy suave en las filas */
+}

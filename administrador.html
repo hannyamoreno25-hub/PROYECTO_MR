@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Control Técnico | Gestión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo-container">
+        <img src="../WhatsApp Image 2026-02-05 at 4.45.12 PM (1).jpeg" alt="Logo" class="nav-logo">
+        <span class="title">CONTROL TÉCNICO | ADMIN</span>
+    </div>
+
+   <div class="botones_menu d-flex align-items-center gap-2">
+    <a href="administrador.html" class="btn btn-outline-light btn-sm">INICIO</a>
+    <a href="asistencia.html" class="btn btn-outline-light btn-sm">ASISTENCIA</a>
+    <a href="monitoreo.html" class="btn btn-outline-light btn-sm">MONITOREO</a>
+    
+    <a href="index.html" class="btn btn-danger btn-sm fw-bold ms-2" onclick="cerrarSesion()">
+        <i class="bi bi-box-arrow-right"></i> Salir
+    </a>
+</div>
+</header>
+
+<main class="content p-4">
+
+    <section class="card-section formal-style mb-4">
+        <h4 class="section-title-formal">ASIGNACIÓN TÉCNICA</h4>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label-formal">Seleccionar Zona</label>
+                <select id="asigZona" class="form-select-formal" onchange="filtrarSucursalesPorZona()">
+                    <option value="" disabled selected>Elige una zona...</option>
+                    <option value="Zona C">Zona C</option>
+                    <option value="Zona D">Zona D</option>
+                    <option value="Zona E">Zona E</option>
+                    <option value="Carpinterias">Carpinterías</option>
+                    <option value="Zona F">Zona F</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label-formal">Técnico Responsable</label>
+                <input type="text" id="asigTecnico" class="form-input-formal" placeholder="Nombre del técnico">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label-formal">Sucursal Disponible</label>
+                <select id="asigUnidades" class="form-select-formal">
+                    <option value="">Selecciona una zona primero</option>
+                </select>
+            </div>
+            <div class="col-md-12 mt-4">
+                <button class="btn-formal-black w-100" onclick="ejecutarAsignacion(event)">GUARDAR ASIGNACIÓN</button>
+            </div>
+        </div>
+        
+        <div class="table-responsive mt-5 border-top pt-4">
+            <table class="table-formal table table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ZONA</th>
+                        <th>TECNICO</th>
+                        <th>UNIDADES</th>
+                        <th>UBICACIÓN</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody id="listaAsignacionesSheet">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="card-section formal-style mb-4">
+        <h4 class="section-title-formal">ADMINISTRACIÓN DE ACCESOS (NUEVO USUARIO)</h4>
+        <div class="row g-3 align-items-end">
+            <div class="col-md-2">
+                <label class="form-label-formal">Usuario ID</label>
+                <input type="text" id="adminUser" class="form-input-formal" placeholder="Ej. user01">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label-formal">Contraseña</label>
+                <input type="password" id="adminPass" class="form-input-formal" placeholder="****">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label-formal">Nombre Real</label>
+                <input type="text" id="adminNombreCompleto" class="form-input-formal" placeholder="Nombre completo">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label-formal">Rol</label>
+                <select id="adminRol" class="form-select-formal">
+                    <option value="TECNICO">TECNICO</option>
+                    <option value="AUXILIAR">AUXILIAR</option>
+                    <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label-formal">URL Foto (Opcional)</label>
+                <input type="text" id="adminFotoURL" class="form-input-formal" placeholder="Link de la imagen">
+            </div>
+            <div class="col-md-12 mt-4">
+                <button class="btn-formal-black w-100" id="btnAlta" onclick="ejecutarAltaUsuario()">DAR DE ALTA EN GOOGLE SHEETS</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-4 mb-5">
+        <div class="accordion formal-style" id="accordionUsuarios">
+          <div class="accordion-item" style="border: 2px solid #000;">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsers" style="background: #000; color: #fff;">
+                <i class="bi bi-people-fill me-2"></i> LISTADO DE USUARIOS ACTIVOS
+              </button>
+            </h2>
+            <div id="collapseUsers" class="accordion-collapse collapse" data-bs-parent="#accordionUsuarios">
+              <div class="accordion-body">
+                <table class="table table-sm align-middle text-center table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Foto</th>
+                            <th>Usuario (ID)</th>
+                            <th>Nombre Completo</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaUsuariosPersiana">
+                        </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

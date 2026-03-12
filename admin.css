@@ -1,0 +1,113 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #1a1a1a;
+    --gris-claro: #f0f2f5;
+}
+
+body {
+    background-color: var(--gris-claro);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+}
+
+/* TOPBAR */
+.topbar {
+    background-color: var(--negro);
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.title {
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+/* TARJETAS */
+.card-section {
+    background: white;
+    padding: 30px;
+}
+
+.formal-style {
+    border: 1px solid #ddd !important;
+    border-top: 5px solid var(--negro) !important;
+    border-radius: 8px !important; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.section-title-formal {
+    color: var(--negro);
+    font-weight: 800;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+/* FORMULARIOS */
+.form-label-formal {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #444;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input-formal, .form-select-formal {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    color: var(--negro);
+}
+
+.form-input-formal:focus, .form-select-formal:focus {
+    outline: none;
+    border-color: var(--negro);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+/* BOTONES */
+.btn-formal-black {
+    background-color: var(--negro);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-formal-black:hover {
+    background-color: #333;
+}
+
+/* TABLAS */
+.table-formal {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-formal th, .table-formal td {
+    padding: 12px;
+    vertical-align: middle;
+}

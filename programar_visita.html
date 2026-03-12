@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Programar Visita | CONTROL MR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="programar_visita.css"> 
+</head>
+<body>
+
+<header class="topbar shadow-sm">
+    <div class="logo-container d-flex align-items-center">
+        <img src="../WhatsApp Image 2026-02-05 at 4.45.12 PM (1).jpeg" alt="Logo" class="nav-logo me-2">
+        <span class="title d-none d-md-inline fw-bold tracking-wide">AGENDA DE VISITAS</span>
+    </div>
+
+    <div class="user-menu-container d-flex align-items-center">
+        <a href="tecnico.html" class="btn btn-outline-light btn-sm me-3">
+            <i class="bi bi-arrow-left me-1"></i> Volver al Panel
+        </a>
+        <div class="dropdown">
+            <button class="btn btn-user dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle me-1"></i>
+                <span id="userNameDisplay">Usuario</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+                <li><a class="dropdown-item text-danger fw-bold" href="index.css" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="content container mt-5">
+    <div class="row justify-content-center">
+        
+        <section class="col-md-8 card-section shadow-sm formal-style mb-4">
+            <h4 class="section-title-formal text-center">
+                <i class="bi bi-calendar-plus me-2"></i>PROGRAMAR NUEVA VISITA
+            </h4>
+            
+            <form id="formAgenda" onsubmit="agendarVisita(event)">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label-formal">Tipo de Trabajador:</label>
+                        <select class="form-select custom-select" id="tipoTrabajador" required>
+                            <option value="" selected disabled>-- Selecciona --</option>
+                            <option value="Técnico">Técnico</option>
+                            <option value="Auxiliar">Auxiliar</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label-formal">Sucursal Destino:</label>
+                        <select class="form-select custom-select" id="sucursalDestino" required>
+                            <option value="" selected disabled>-- Elige una sucursal --</option>
+                            <option value="Sucursal Centro">Sucursal Centro</option>
+                            <option value="Sucursal Norte">Sucursal Norte</option>
+                            <option value="Sucursal Sur">Sucursal Sur</option>
+                            <option value="Sucursal Poniente">Sucursal Poniente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label-formal">Fecha de la Visita:</label>
+                        <input type="date" class="form-control custom-select" id="fechaVisita" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label-formal">Hora de Entrada:</label>
+                        <input type="time" class="form-control custom-select" id="horaVisita" required>
+                    </div>
+                </div>
+
+                <div class="button-group d-grid gap-2 mt-3">
+                    <button type="submit" class="btn btn-start btn-lg" id="btnGuardarVisita">
+                        GUARDAR EN AGENDA
+                    </button>
+                </div>
+                <div id="msgAgenda" class="text-center mt-3 fw-bold"></div>
+            </form>
+        </section>
+
+        <section class="col-md-10 card-section shadow-sm formal-style">
+            <h4 class="section-title-formal text-center">VISITAS PROGRAMADAS</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Trabajador</th>
+                            <th>Sucursal</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaVisitasBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="programar_visita.js"></script>
+</body>
+</html>
