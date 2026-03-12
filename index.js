@@ -46,11 +46,11 @@ async function login(event) {
                 const rol = (data.rol || "").toUpperCase().trim(); 
 
                 if (rol === "ADMINISTRADOR") {
-                    window.location.href = "../administrador/administrador.html";
+                    window.location.href = "/administrador.html";
                 } else if (rol === "TECNICO") {
-                    window.location.href = "../tecnico/tecnico.html";
+                    window.location.href = "tecnico.html";
                 } else if (rol === "AUXILIAR") {
-                    window.location.href = "../auxiliar/auxiliar.html";
+                    window.location.href = "auxiliar.html";
                 } else {
                     msgElement.innerText = "Error: Rol desconocido (" + rol + ")";
                     msgElement.style.color = "#FF4B4B";
